@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+.back-btn	{
+  position:fixed;
+  top:2%;
+  right:2%;
+}
+
+.top-btn	{
+  position:fixed;
+  top:2%;
+  right:8%;
+}

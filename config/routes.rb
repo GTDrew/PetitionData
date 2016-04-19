@@ -3,10 +3,8 @@ Rails.application.routes.draw do
   #
   # get 'signers/import'
 
-  resources :signers do
-    collection { post :import }
-  end
-  get '/import', to: 'signers#import'
+  resources :signers
+  get 'signers/import'
   get 'home/location'
   get 'home/month'
 

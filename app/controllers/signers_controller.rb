@@ -1,4 +1,11 @@
 class SignersController < ApplicationController
+  def index
+    @signers = Signer.all
+  end
+
+  def show
+  end
+
   def import
     if params[:password] == ENV["file_password"]
       Signer.import(params[:file])

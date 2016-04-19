@@ -1,15 +1,23 @@
-<h1>Nyack's Waterfront Zoning Petition Data</h1>
 <div class="row">
-  <h4>Total Petition Signers: <%= @signers.count %> </h4>
-  <p>(as of <%= @signers.first.created_at.strftime('%b %e, %Y at %l:%M %p') %>)</p>
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Nyack's Waterfront Zoning Petition Data</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 text-center">
+    <h4>Total Petition Signers: <%= @signers.count %> </h4>
+    <p>(as of <%= @signers.first.created_at.strftime('%b %e, %Y at %l:%M %p') %>)</p>
+  </div>
 </div>
 <div class="row">
   <div class="col-md-6">
-    <h3>Signers by Month</h3>
+    <h3 class="text-center">Signers by Month</h3>
+    <hr>
     <%= column_chart home_month_path, max: 615 %>
   </div>
   <div class="col-md-6">
-    <h3>Signers by Location</h3>
+    <h3 class="text-center">Signers by Location</h3>
+    <hr>
     <%= pie_chart home_location_path %>
   </div>
 </div>

@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col-md-6">
     <h3>Signers by Month</h3>
-    <%= column_chart Signer.group_by_month(:date, format: "%B").count %>
+    <%= column_chart home_month_path %>
   </div>
   <div class="col-md-6">
     <h3>Signers by Location</h3>

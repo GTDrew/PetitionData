@@ -1,0 +1,9 @@
+<h4>Import Signers</h4>
+<%= form_tag import_signers_path, multipart: true do %>
+  <p><%= file_field_tag :file %></p>
+
+  <p><label for="password">Password</label>
+  <%= password_field_tag :password %></p>
+
+  <p><%= submit_tag "Import CSV" %></p>
+<% end %>

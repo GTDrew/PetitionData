@@ -30,3 +30,5 @@ end
 gem 'twitter-bootstrap-rails'
 gem 'chartkick'
 gem 'groupdate'
+gem 'rails_12factor', group: :production
+gem 'figaro'

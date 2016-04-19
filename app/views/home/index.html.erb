@@ -20,6 +20,28 @@
 </div>
 <div class="row">
   <h3 class="text-center">Signers by Location</h3>
-  <%#= pie_chart home_location_path, library: {legend: {labelFormat: '{name} : {y} ({percentage}%)'}, pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'}  %>
   <%= pie_chart home_location_path %>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h1 class="text-center">Nyack Petition Signers</h1>
+    <table class="table table-striped table-bordered table-hover table-condensed">
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Date Signed</th>
+      </tr>
+      <% signer_count = 1 %>
+      <% nyack_signers.each do |signer| %>
+      <tr>
+        <td><%= signer_count %></td>
+        <td><%= signer.name %></td>
+        <td><%= signer.location %></td>
+        <td><%= signer.date.strftime('%B %e, %Y') %></td>
+      </tr>
+      <% signer_count += 1 %>
+      <% end %>
+    </table>
+  </div>
 </div>

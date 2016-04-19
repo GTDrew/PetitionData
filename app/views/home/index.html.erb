@@ -12,12 +12,10 @@
 <div class="row">
   <div class="col-md-6">
     <h3 class="text-center">Signers by Month</h3>
-    <hr>
     <%= column_chart home_month_path, max: 615 %>
   </div>
   <div class="col-md-6">
     <h3 class="text-center">Signers by Location</h3>
-    <hr>
-    <%= pie_chart home_location_path %>
+    <%= pie_chart home_location_path, library: {legend: {labelFormat: '{name} : {y} ({percentage}%)'}, pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'}  %>
   </div>
 </div>

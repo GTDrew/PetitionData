@@ -4,18 +4,22 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-4 col-md-offset-4 text-center">
+  <div class="col-md-6 text-center">
     <h4>Total Petition Signers: <%= @signers.count %> </h4>
     <p>(as of <%= @signers.first.created_at.strftime('%b %e, %Y at %l:%M %p') %>)</p>
   </div>
+  <div class="col-md-6 text-center">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>Petition Signers from Nyack, NY: <%= nyack_signer_count %></h4>
+        <h4>Nyack's Total Population: 6898 </h4>
+        <h4><b>Total Nyack Percentage: <%= nyack_percentage %>%</b></h4>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="row">
-  <div class="col-md-6">
-    <h3 class="text-center">Signers by Month</h3>
-    <%= column_chart home_month_path, max: 615 %>
-  </div>
-  <div class="col-md-6">
-    <h3 class="text-center">Signers by Location</h3>
-    <%= pie_chart home_location_path, library: {legend: {labelFormat: '{name} : {y} ({percentage}%)'}, pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'}  %>
-  </div>
+  <h3 class="text-center">Signers by Location</h3>
+  <%#= pie_chart home_location_path, library: {legend: {labelFormat: '{name} : {y} ({percentage}%)'}, pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'}  %>
+  <%= pie_chart home_location_path %>
 </div>

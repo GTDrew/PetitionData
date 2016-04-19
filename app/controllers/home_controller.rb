@@ -8,6 +8,6 @@ class HomeController < ApplicationController
   end
 
   def month
-    render json: Signer.group_by_month(:date, format: "%B").count
+    render json: Signer.group_by_month(:date, format: "%B", max: 615).count
   end
 end

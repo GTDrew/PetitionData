@@ -1,1 +1,15 @@
 <h1>Nyack's Waterfront Zoning Petition Data</h1>
+<div class="row">
+  <h4>Total Petition Signers: <%= @signers.count %> </h4>
+  <p>(as of <%= @signers.first.created_at.strftime('%b %e, %Y at %l:%M %p') %>)</p>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Signers by Month</h3>
+    <%= column_chart Signer.group_by_month(:date, format: "%B").count %>
+  </div>
+  <div class="col-md-6">
+    <h3>Signers by Location</h3>
+    <%= pie_chart home_location_path %>
+  </div>
+</div>

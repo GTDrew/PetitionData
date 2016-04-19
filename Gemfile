@@ -29,3 +29,4 @@ end
 
 gem 'twitter-bootstrap-rails'
 gem 'chartkick'
+gem 'groupdate'

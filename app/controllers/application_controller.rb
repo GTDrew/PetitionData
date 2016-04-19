@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def nyack_signers
-    nyack_signers ||= Signer.where(:location => 'Nyack, NY')
+    nyack_signers ||= Signer.where(:location => 'Nyack, NY').order(created_at: :desc)
   end
 
   def nyack_percentage

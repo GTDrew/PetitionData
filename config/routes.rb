@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :signers do
     collection { post :import }
   end
-
+  get '/import', to: 'signers#import'
   get 'home/location'
   get 'home/month'
 

@@ -57,7 +57,6 @@
             data-container="body"
             data-placement="right"
             data-html="true"
-            data-trigger="focus"
             title="Flagged Incorrectly?"
             data-content="<%= render partial: "signers/unflag", locals: {signer: signer} %>">
             <i class="fa fa-flag" aria-hidden="true"></i> <%= check_box_tag 'flag', 'flagged', checked: true %>
@@ -68,7 +67,6 @@
           data-container="body"
           data-placement="right"
           data-html="true"
-          data-trigger="focus"
           title="Flag as Duplicate/Incorrect"
           data-content="<%= render partial: "signers/flag", locals: {signer: signer} %>">
           <i class="fa fa-flag" aria-hidden="true"></i> <%= check_box_tag 'flag' %>

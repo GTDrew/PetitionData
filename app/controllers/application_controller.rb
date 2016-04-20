@@ -12,10 +12,15 @@ class ApplicationController < ActionController::Base
   end
 
   def nyack_percentage
-    nyack_percentage ||= ((nyack_signer_count.to_f/6898.00)*100).round(2)
+    nyack_percentage ||= (( (nyack_signer_count.to_f - flagged_signer_count.to_f)/6898.00)*100).round(2)
   end
 
-  helper_method :nyack_signer_count
-  helper_method :nyack_percentage
-  helper_method :nyack_signers
+  def flagged_signer_count
+    flagged_signer_count ||= Signer.where(:flagged => 'true').count
+  end
+
+  helper_method :nyack_signer_count,
+                :nyack_percentage,
+                :nyack_signers,
+                :flagged_signer_count
 end

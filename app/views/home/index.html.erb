@@ -11,8 +11,9 @@
   <div class="col-md-6 text-center">
     <div class="panel panel-default">
       <div class="panel-body">
-        <h4>Petition Signers from Nyack, NY: <%= nyack_signer_count %></h4>
         <h4>Nyack's Population (2013): 6898 </h4>
+        <h4>Petition Signers from Nyack, NY: <%= nyack_signer_count %></h4>
+        <h4>Signers Flagged as Duplicates/Incorrect: <%= flagged_signer_count %></h4>
         <h4><b>Total Nyack Percentage: <%= nyack_percentage %>%</b></h4>
       </div>
     </div>
@@ -32,17 +33,45 @@
         <th>Name</th>
         <th>Location</th>
         <th>Date Signed</th>
+        <th></th>
       </tr>
       <% signer_count = 1 %>
       <% nyack_signers.each do |signer| %>
-      <tr>
-        <td><%= signer_count %></td>
-        <td><%= signer.name %></td>
-        <td><%= signer.location %></td>
-        <td><%= signer.date.strftime('%B %e, %Y') %></td>
-      </tr>
-      <% signer_count += 1 %>
-      <% end %>
-    </table>
-  </div>
+      <% if signer.flagged? %>
+      <tr class="danger">
+        <% else %>
+        <tr>
+          <% end %>
+          <td><%= signer_count %></td>
+          <td><%= signer.name %></td>
+          <td><%= signer.location %></td>
+          <td><%= signer.date.strftime('%B %e, %Y') %></td>
+          <td class="text-center">
+            <% if signer.flagged? %>
+            <span class="has-popover"
+            data-toggle="popover"
+            data-container="body"
+            data-placement="right"
+            data-html="true"
+            title="Flagged Incorrectly?"
+            data-content="<%= render partial: "signers/unflag", locals: {signer: signer} %>">
+            <i class="fa fa-flag" aria-hidden="true"></i> <%= check_box_tag 'flag', 'flagged', checked: true %>
+          </span>
+          <% else %>
+          <span class="has-popover"
+          data-toggle="popover"
+          data-container="body"
+          data-placement="right"
+          data-html="true"
+          title="Flag as Duplicate/Incorrect"
+          data-content="<%= render partial: "signers/flag", locals: {signer: signer} %>">
+          <i class="fa fa-flag" aria-hidden="true"></i> <%= check_box_tag 'flag' %>
+        </span>
+        <% end %>
+      </td>
+    </tr>
+    <% signer_count += 1 %>
+    <% end %>
+  </table>
+</div>
 </div>

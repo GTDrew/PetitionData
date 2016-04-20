@@ -1,5 +1,8 @@
-<%= form_for signer do |f| %>
-<div class='form-group text-center'>
-  <%= f.submit 'Unflag Signer', class: 'btn btn-danger' %>
-</div>
-<% end.gsub('"', '\'') %>
+<p>Flagged For: <%= signer.flag_purpose %></p>
+<% cache do %>
+  <%= form_for signer do |f| %>
+  <div class='form-group text-center'>
+    <%= f.submit 'Unflag Signer', class: 'btn btn-danger' %>
+  </div>
+  <% end.gsub('"', '\'') %>
+<% end %>

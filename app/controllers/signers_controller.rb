@@ -15,8 +15,8 @@ class SignersController < ApplicationController
 
     # if @signer.update(signer_params)
       @signer.flagged? ? @signer.flagged = false : @signer.flagged = true
-      if params[:flag_purpose]
-        @signer.update_attributes(:flag_purpose => params[:flag_purpose])
+      if params[:signer] && params[:signer][:flag_purpose]
+        @signer.update_attributes(:flag_purpose => params[:signer][:flag_purpose])
       end
       @signer.save
       redirect_to root_path

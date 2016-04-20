@@ -28,3 +28,11 @@ $(window).scroll(function() {
 		$(".home-top-btn").css("visibility","hidden");
 	}
 });
+
+
+// $('#flag').is(':checked')
+// 
+//
+// if ($('.form-group').is(':visible')) {
+//   var box
+// }

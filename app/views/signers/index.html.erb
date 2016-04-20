@@ -8,17 +8,47 @@
         <th>Name</th>
         <th>Location</th>
         <th>Date Signed</th>
+        <th></th>
       </tr>
       <% signer_count = 1 %>
       <% @signers.each do |signer| %>
-      <tr>
+      <% if signer.flagged? %>
+      <tr class="danger">
+        <% else %>
+        <tr>
+          <% end %>
         <td><%= signer_count %></td>
         <td><%= signer.name %></td>
         <td><%= signer.location %></td>
         <td><%= signer.date.strftime('%B %e, %Y') %></td>
-      </tr>
-      <% signer_count += 1 %>
+        <td class="text-center">
+          <% if signer.flagged? %>
+          <span class="has-popover"
+          data-toggle="popover"
+          data-container="body"
+          data-placement="right"
+          data-html="true"
+          data-trigger="focus"
+          title="Flagged Incorrectly?"
+          data-content="<%= render partial: "signers/unflag", locals: {signer: signer} %>">
+          <i class="fa fa-flag" aria-hidden="true"></i> <%= check_box_tag 'flag', 'flagged', checked: true %>
+        </span>
+        <% else %>
+        <span class="has-popover"
+        data-toggle="popover"
+        data-container="body"
+        data-placement="right"
+        data-html="true"
+        data-trigger="focus"
+        title="Flag as Duplicate/Incorrect"
+        data-content="<%= render partial: "signers/flag", locals: {signer: signer} %>">
+        <i class="fa fa-flag" aria-hidden="true"></i> <%= check_box_tag 'flag' %>
+      </span>
       <% end %>
-    </table>
-  </div>
+    </td>
+  </tr>
+  <% signer_count += 1 %>
+  <% end %>
+</table>
+</div>
 </div>

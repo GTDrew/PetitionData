@@ -1,8 +1,10 @@
+<% cache do %>
 <div class="row">
   <div class="col-md-8 col-md-offset-2 text-center" id="top">
     <h1>Nyack's Waterfront Zoning Petition</h1>
   </div>
 </div>
+<% end %>
 <div class="row">
   <div class="col-md-6 text-center">
     <h4>Total Petition Signers: <%= @signers.count %> </h4>
@@ -19,12 +21,14 @@
     </div>
   </div>
 </div>
+<% cache do %>
 <div class="row">
   <h3 class="text-center">Signers by Location</h3>
   <%= pie_chart home_location_path %>
 </div>
 <div class="row" id="signers">
   <%= link_to "Back to Top", "#top", class: 'btn btn-info text-center home-top-btn visible-md visible-lg' %>
+  <% end %>
   <div class="col-md-8 col-md-offset-2">
     <h1 class="text-center">Nyack Resident Signers <%= link_to "See Full List", signers_path, class: 'btn btn-info text-center' %></h1>
     <table class="table table-striped table-bordered table-hover table-condensed">
@@ -53,6 +57,7 @@
             data-container="body"
             data-placement="right"
             data-html="true"
+            data-trigger="focus"
             title="Flagged Incorrectly?"
             data-content="<%= render partial: "signers/unflag", locals: {signer: signer} %>">
             <i class="fa fa-flag" aria-hidden="true"></i> <%= check_box_tag 'flag', 'flagged', checked: true %>
@@ -63,6 +68,7 @@
           data-container="body"
           data-placement="right"
           data-html="true"
+          data-trigger="focus"
           title="Flag as Duplicate/Incorrect"
           data-content="<%= render partial: "signers/flag", locals: {signer: signer} %>">
           <i class="fa fa-flag" aria-hidden="true"></i> <%= check_box_tag 'flag' %>

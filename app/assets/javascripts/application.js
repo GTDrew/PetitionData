@@ -15,3 +15,11 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(window).scroll(function() {
+    if ($(this).scrollTop()) {
+        $('.home-top-btn:hidden').fadeIn();
+    } else {
+        $('.home-top-btn').fadeOut();
+    }
+});

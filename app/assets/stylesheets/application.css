@@ -14,14 +14,14 @@
  *= require_self
  */
 
-.back-btn	{
+.top-btn	{
   position:fixed;
-  top:2%;
+  bottom:2%;
   right:2%;
 }
 
-.top-btn	{
+.home-top-btn	{
   position:fixed;
-  top:2%;
-  right:8%;
+  bottom:2%;
+  right:2%;
 }

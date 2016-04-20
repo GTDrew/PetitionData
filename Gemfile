@@ -32,3 +32,4 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'rails_12factor', group: :production
 gem 'figaro'
+gem "font-awesome-rails"

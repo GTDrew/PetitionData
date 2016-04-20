@@ -1,0 +1,15 @@
+<div class="container text-center">
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-4">
+      <h1>Edit <%= @signer.name %><br>
+      <%= form_for @signer do |f| %>
+      <div class="form-group">
+        <%= f.text_area :flag_purpose, placeholder: "Reason for flagging...", class: "form-control" %><br>
+
+        <%= f.submit "Flag Signer", class: "btn btn-info" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

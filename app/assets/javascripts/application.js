@@ -17,9 +17,14 @@
 //= require_tree .
 
 $(window).scroll(function() {
-    if ($(this).scrollTop()) {
-        $('.home-top-btn:hidden').fadeIn();
-    } else {
-        $('.home-top-btn').fadeOut();
+    var y_scroll_pos = window.pageYOffset;
+    var scroll_pos_test = 1000;
+
+    if(y_scroll_pos > scroll_pos_test) {
+	   $(".home-top-btn").css("visibility","visible");
     }
+	else
+	{
+		$(".home-top-btn").css("visibility","hidden");
+	}
 });

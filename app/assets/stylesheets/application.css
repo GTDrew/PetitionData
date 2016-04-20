@@ -24,4 +24,5 @@
   position:fixed;
   bottom:2%;
   right:2%;
+  visibility: hidden;
 }
